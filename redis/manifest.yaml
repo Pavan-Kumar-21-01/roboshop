@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  labels:
+    app: redis
+    tier: db
+    environment: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+      tier: db
+      environment: dev
+  template:
+    metadata:
+      labels:
+        app: redis
+        tier: db
+        environment: dev
+    spec:
+      containers:
+      - name: redis
+        image: redis:7
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+spec:
+  selector:
+    app: redis
+    tier: db
+    environment: dev
+  type: ClusterIP
+  ports:
+    - port: 6379
+      protocol: TCP
+      targetPort: 6379
