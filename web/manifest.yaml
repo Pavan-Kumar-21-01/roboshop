@@ -107,7 +107,7 @@ spec:
     app: web
     tier: app
     environment: dev
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 80
       protocol: TCP
