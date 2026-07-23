@@ -33,7 +33,7 @@ spec:
     app: roboshop
     tier: db
     environment: dev
-  type: clusterIP
+  type: ClusterIP
   ports:
     - port: 27017
       protocol: TCP
