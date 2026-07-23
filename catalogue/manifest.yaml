@@ -32,8 +32,8 @@ spec:
       - name: catalogue
         image: pavankg2101/catalogue:v1.0
         envFrom:
-        - configMapRef:
-          name: catalogue-config
+          - configMapRef:
+            name: catalogue-config
 ---
 apiVersion: v1
 kind: Service
