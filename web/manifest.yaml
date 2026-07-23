@@ -8,7 +8,6 @@ data:
     worker_processes auto;
     error_log /var/log/nginx/error.log notice;
     pid /run/nginx.pid;
-
     include /usr/share/nginx/modules/*.conf;
 
     events {
@@ -107,13 +106,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: web 
 spec:
   selector:
     app: web
     tier: app
     environment: dev
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 80
       protocol: TCP
