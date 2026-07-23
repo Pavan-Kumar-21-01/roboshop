@@ -32,7 +32,7 @@ spec:
       - name: catalogue
         image: pavankg2101/catalogue:v1.0
         envFrom:
-          - configMapRef:
+        - configMapRef:   # Use configMapRef for ConfigMaps
             name: catalogue-config
 ---
 apiVersion: v1
